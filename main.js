@@ -1,4 +1,23 @@
 !function(){
+    var duration = 50
+    $('.actions').on('click', 'button', function(e){
+        let $button = $(e.currentTarget) // button
+        let speed = $button.attr('data-speed')
+        $button.addClass('active')
+          .siblings('.active').removeClass('active')
+        switch(speed){
+         case 'slow':
+            duration = 100
+            break
+          case 'normal':
+            duration = 50
+            break
+          case 'fast':
+            duration = 10
+            break
+        }
+      })
+    
     function writeCode(prefix, code, fn){
         let container = document.querySelector('#code')
         let styleTag = document.querySelector('#styleTag')
@@ -12,7 +31,7 @@
                 window.clearInterval(id)
                 fn&&fn.call()
             }
-        },20)
+        },duration)
     }
     let code=`
 /*

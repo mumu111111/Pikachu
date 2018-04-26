@@ -1,0 +1,23 @@
+{
+  "name": "pikachu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mumu111111/Pikachu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mumu111111/Pikachu/issues"
+  },
+  "homepage": "https://github.com/mumu111111/Pikachu#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
