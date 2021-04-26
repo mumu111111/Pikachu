@@ -1,40 +1,40 @@
-!function(){
-    var duration = 50
-    $('.actions').on('click', 'button', function(e){
-      let $button = $(e.currentTarget) // button
-      let speed = $button.attr('data-speed')
-      $button.addClass('active')
-        .siblings('.active').removeClass('active')
-      switch(speed){
-        case 'slow':
-          duration = 100
-          break
-        case 'normal':
-          duration = 50
-          break
-        case 'fast':
-          duration = 10
-          break
-      }
-    })
-    function writeCode(prefix, code, fn){
-      let container = document.querySelector('#code')
-      let styleTag = document.querySelector('#styleTag')
-      let n = 0
-      let id
-      id = setTimeout(function run(){
-        n+=1
-        container.innerHTML = code.substring(0,n)
-        styleTag.innerHTML = code.substring(0,n)
-        container.scrollTop = container.scrollHeight
-        if(n < code.length){
-          id = setTimeout(run, duration)
-        }else{
-          fn && fn.call()
-        }
-      }, duration)
+!function () {
+  var duration = 50
+  $('.actions').on('click', 'button', function (e) {
+    let $button = $(e.currentTarget) // button
+    let speed = $button.attr('data-speed')
+    $button.addClass('active')
+      .siblings('.active').removeClass('active')
+    switch (speed) {
+      case 'slow':
+        duration = 100
+        break
+      case 'normal':
+        duration = 50
+        break
+      case 'fast':
+        duration = 10
+        break
     }
-    let code=`
+  })
+  function writeCode(prefix, code, fn) {
+    let container = document.querySelector('#code')
+    let styleTag = document.querySelector('#styleTag')
+    let n = 0
+    let id
+    id = setTimeout(function run() {
+      n += 1
+      container.innerHTML = code.substring(0, n)
+      styleTag.innerHTML = code.substring(0, n)
+      container.scrollTop = container.scrollHeight
+      if (n < code.length) {
+        id = setTimeout(run, duration)
+      } else {
+        fn && fn.call()
+      }
+    }, duration)
+  }
+  let code = `
     /*
     *首先，需要准备皮卡丘的皮
     */    
@@ -130,6 +130,7 @@
         position: absolute;
         top: 47px;
         background: #FEE433;
+        z-index: 1;
     }
     .wrapper .upperLip.left{
         right: 50%;
@@ -156,7 +157,7 @@
         left: 50%;
         margin-left: -150px;
         overflow: hidden;
-        z-index: -1;
+        z-index: 0;
     }
     .wrapper .lowerLip{
         width: 300px;
@@ -188,6 +189,6 @@
     *好了，这只皮卡丘送给你~~~
     */ 
         `
-    writeCode('', code)
+  writeCode('', code)
 
 }.call()
